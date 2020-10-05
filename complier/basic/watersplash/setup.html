@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CodeSmartz - WaterSplash (Complier)</title>
+</head>
+<script>
+var watersplash = {}
+watersplash.VERSION = '0.0.1'
+watersplash.lexer = lexer
+watersplash.parser = parser
+watersplash.transformer = transformer
+watersplash.generator = generator
+watersplash.compile = function (code) {
+  return this.generator(this.transformer(this.parser(this.lexer(code))))
+}
+var code = ""
+var syntax = ""
+var statement = ["if ( - ) []", "if ( + ) []", "if ( = ) []"]
+var svg = watersplash.compile(code)
+document.body.innerHTML = svg
